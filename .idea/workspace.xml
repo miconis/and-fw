@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="384bbe69-51ae-45a1-912e-4a1867f3a254" name="Default Changelist" comment="" />
+    <list default="true" id="384bbe69-51ae-45a1-912e-4a1867f3a254" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LDAexample.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LDAexample2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LDAtraining.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SCAD-zbMATHtoJSON.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorExtractor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clusteringTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/createClusters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neuroinformaticsStats.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AminerWiWtoJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/AminerWiWtoJSON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createLDAmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/createLDAmodel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilityFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilityFunctions.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,24 +55,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AminerWiWtoJSON.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="31" selection-end-line="88" />
+            <state relative-caret-position="-944">
+              <caret line="41" selection-end-line="145" />
               <folding>
                 <element signature="e#88#120#0" expanded="true" />
-                <element signature="e#243#294#0" />
-                <element signature="e#312#350#0" />
-                <element signature="e#373#655#0" />
-                <element signature="e#680#729#0" />
-                <element signature="e#756#1319#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset_processors.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -74,35 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilityFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1673957305987" expanded="true" signature="94:224" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)/train_pub.json">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state relative-caret-position="75">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)/train_author.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="388" column="21" selection-start-line="388" selection-start-column="13" selection-end-line="388" selection-end-column="21" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -172,17 +153,6 @@
             <path>
               <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
               <item name="and-fw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
-              <item name="and-fw" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
-              <item name="and-fw" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-              <item name="processed" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,13 +228,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16535018" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16535018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.4997367" visible="true" weight="0.21968912" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.4997367" visible="true" weight="0.21968912" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5002633" side_tool="true" visible="true" weight="0.21968912" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
@@ -338,21 +309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AminerWiWtoJSON.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" selection-end-line="88" />
-          <folding>
-            <element signature="e#88#120#0" expanded="true" />
-            <element signature="e#243#294#0" />
-            <element signature="e#312#350#0" />
-            <element signature="e#373#655#0" />
-            <element signature="e#680#729#0" />
-            <element signature="e#756#1319#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)/train_pub.json">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="75">
@@ -367,17 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utilityFunctions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1673957305987" expanded="true" signature="94:224" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -387,6 +332,23 @@
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="e#88#118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilityFunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AminerWiWtoJSON.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-944">
+          <caret line="41" selection-end-line="145" />
+          <folding>
+            <element signature="e#88#120#0" expanded="true" />
           </folding>
         </state>
       </provider>
