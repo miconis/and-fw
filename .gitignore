@@ -50,4 +50,5 @@ coverage.xml
 docs/_build/
 
 datasets/
+results/
 
