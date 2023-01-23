@@ -1,5 +1,5 @@
 # functions to process datasets of each provider: creates publications json files with author ground truth ids
-from utilityFunctions import *
+from utility import *
 import json
 
 
@@ -28,8 +28,6 @@ def aminer_wiw_to_json(pubs_input_path, authors_gt_path, pubs_output_path):
     list_to_file(pubs_list, pubs_output_path)
 
 
-pubs_path = "datasets/Aminer-WhoIsWho (na-v3)/train_pub.json"
-auths_path = "datasets/Aminer-WhoIsWho (na-v3)/train_author.json"
-pubs_output_path = "datasets/processed/aminer_wiw_pubs.json"
-
-aminer_wiw_to_json(pubs_input_path=pubs_path, authors_gt_path=auths_path, pubs_output_path=pubs_output_path)
+aminer_wiw_to_json(pubs_input_path="datasets/Aminer-WhoIsWho (na-v3)/train_pub.json",
+                   authors_gt_path="datasets/Aminer-WhoIsWho (na-v3)/train_author.json",
+                   pubs_output_path="datasets/processed/aminer_wiw_pubs.json")
