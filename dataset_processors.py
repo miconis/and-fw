@@ -28,6 +28,8 @@ def aminer_wiw_to_json(pubs_input_path, authors_gt_path, pubs_output_path):
     list_to_file(pubs_list, pubs_output_path)
 
 
-aminer_wiw_to_json(pubs_input_path="datasets/Aminer-WhoIsWho (na-v3)/train_pub.json",
-                   authors_gt_path="datasets/Aminer-WhoIsWho (na-v3)/train_author.json",
-                   pubs_output_path="datasets/processed/aminer_wiw_pubs.json")
+if __name__ == '__main__':
+
+    aminer_wiw_to_json(pubs_input_path="datasets/Aminer-WhoIsWho (na-v3)/train_pub.json",
+                       authors_gt_path="datasets/Aminer-WhoIsWho (na-v3)/train_author.json",
+                       pubs_output_path="datasets/processed/aminer_wiw_pubs.json")

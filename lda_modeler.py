@@ -20,6 +20,9 @@ from gensim.models import LdaModel
 from gensim.utils import simple_preprocess
 from nltk.corpus import stopwords
 from pyLDAvis import gensim
+import string
+
+from pyspark.sql import SparkSession
 
 
 def list_to_array(x, k):
@@ -161,6 +164,7 @@ def process_for_lda(input_data_path, output_data_path, input_field='abstract', a
     Arguments:
         input_data_path: location of the json input file (the raw data)
         output_data_path: location of the json output file (the data filtered, lemmatized and processed)
+        save: specifies if the result has to be saved in a directory
         input_field: field of the input data to be processed
         allowed_postags: part of the text to be processed
         plots_path: path of the generated plots
@@ -200,15 +204,70 @@ def create_dictionary(input_data_path, no_below=5, no_above=0.7, dictionary_outp
     """
     Create the dictionary for the LDA algorithm.
     Arguments:
-        input_data_path: location of the json input file (the data processed)
+        input_data_path: location of the input file (set of keywords)
         no_below: exclude terms in less than...
         no_above: exclude terms in more than...
+        dictionary_output_path: location for the output file
     Returns:
         dictionary: the dictionary
     """
     data_lemmatized = file_to_list(input_data_path)
 
     dictionary = corpora.Dictionary(data_lemmatized)
+    dictionary.filter_extremes(no_below=no_below, no_above=no_above)
+    dictionary.save(dictionary_output_path)
+    return dictionary
+
+
+def expand_list(l):
+    res = []
+    for elem in l:
+        res.extend(elem.split(';'))
+    return res
+
+
+import unicodedata
+
+
+def deaccent(text):
+    if not isinstance(text, str):
+        text = text.decode('utf8')
+    norm = unicodedata.normalize("NFD", text)
+    result = ''.join(ch for ch in norm if unicodedata.category(ch) != 'Mn')
+    return unicodedata.normalize("NFC", result)
+
+
+def list_processing(l, stop_words):
+    ret = []
+    for elem in l:
+        res = []
+        for word in elem.split(" "):
+            if word not in stop_words:
+                res.append(word)
+        if len(res) <= 2:  # to consider only bigrams (if want to consider trigrams, increase to 3)
+            res = ' '.join(res).strip()
+            res = res.replace(" ", "_")
+            if res != "" and not res.startswith("#"):
+                ret.append(deaccent(res))
+    return ret
+
+
+def create_dictionary_from_keywords(input_data_path, no_below=0.1, no_above=0.5, dictionary_output_path='outputs/dictionary'):
+
+    nltk.download('stopwords')
+    stop_words = stopwords.words('english')
+
+    conf = SparkConf().setAppName('author extractor').setMaster('local[*]')
+    sc = SparkContext(conf=conf)
+
+    data = sc.textFile(input_data_path).map(eval)
+
+    data_lemmatized = data.map(lambda x: list(map(lambda i: re.sub('[,\.!?%$()0123456789:"\\\'\{\}\[\]\+\-\=\*]', '', i).lower(), x)))\
+        .map(lambda x: expand_list(x))\
+        .map(lambda x: list_processing(x, stop_words))\
+        .filter(lambda x: len(x) > 0)
+
+    dictionary = corpora.Dictionary(data_lemmatized.collect())
     dictionary.filter_extremes(no_below=no_below, no_above=no_above)
     dictionary.save(dictionary_output_path)
     return dictionary
@@ -295,31 +354,34 @@ if __name__ == '__main__':
 
     freeze_support()
 
-    data_lemmatized = process_for_lda(input_data_path="datasets/processed/aminer_wiw_pubs.json",
-                                      output_data_path="datasets/processed/aminer_wiw_pubs_processed.json")
+    create_dictionary_from_keywords(input_data_path="datasets/openaire_subjects",
+                                    dictionary_output_path="/tmp/subjects_dictionary_test")
 
-    dictionary = create_dictionary(input_data_path="datasets/processed/aminer_wiw_pubs_processed.json",
-                                   dictionary_output_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
-
-    corpus = create_corpus(input_data_path="datasets/processed/aminer_wiw_pubs_processed.json",
-                           output_data_path="datasets/processed/aminer_wiw_pubs_corpus",
-                           dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
-
-    lda_model = lda_hyperparameters_tuning(corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
-                                           data_lemmatized_path="datasets/processed/aminer_wiw_pubs_processed.json",
-                                           dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07",
-                                           output_data_path="outputs/lda_models")
-
-    generate_lda_vis(lda_data_filepath="results/ldavis_prepared_k10_aauto_bauto",
-                     lda_model_path="outputs/lda_models/lda_model_k10_aauto_bauto",
-                     corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
-                     dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
-
-    generate_lda_docs(input_data_path="datasets/processed/aminer_wiw_pubs.json",
-                      lda_model_path="outputs/lda_models/lda_model_k10_aauto_bauto",
-                      corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
-                      k=10,
-                      output_data_path="datasets/processed/aminer_wiw_pubs_lda_topics.json")
-
-    papers = pd.read_json("datasets/processed/aminer_wiw_pubs_lda_topics.json", lines=True).to_dict('records')
-    tsne_plot(element=papers, output_path="results/tsne_plot_k10_aauto_bauto")
+    # data_lemmatized = process_for_lda(input_data_path="datasets/processed/aminer_wiw_pubs.json",
+    #                                   output_data_path="datasets/processed/aminer_wiw_pubs_processed.json")
+    #
+    # dictionary = create_dictionary(input_data_path="datasets/processed/aminer_wiw_pubs_processed.json",
+    #                                dictionary_output_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
+    #
+    # corpus = create_corpus(input_data_path="datasets/processed/aminer_wiw_pubs_processed.json",
+    #                        output_data_path="datasets/processed/aminer_wiw_pubs_corpus",
+    #                        dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
+    #
+    # lda_model = lda_hyperparameters_tuning(corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
+    #                                        data_lemmatized_path="datasets/processed/aminer_wiw_pubs_processed.json",
+    #                                        dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07",
+    #                                        output_data_path="outputs/lda_models")
+    #
+    # generate_lda_vis(lda_data_filepath="results/ldavis_prepared_k10_aauto_bauto",
+    #                  lda_model_path="outputs/lda_models/lda_model_k10_aauto_bauto",
+    #                  corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
+    #                  dictionary_path="outputs/dictionary_aminer_wiw_nobelow5_noabove07")
+    #
+    # generate_lda_docs(input_data_path="datasets/processed/aminer_wiw_pubs.json",
+    #                   lda_model_path="outputs/lda_models/lda_model_k10_aauto_bauto",
+    #                   corpus_path="datasets/processed/aminer_wiw_pubs_corpus",
+    #                   k=10,
+    #                   output_data_path="datasets/processed/aminer_wiw_pubs_lda_topics.json")
+    #
+    # papers = pd.read_json("datasets/processed/aminer_wiw_pubs_lda_topics.json", lines=True).to_dict('records')
+    # tsne_plot(element=papers, output_path="results/tsne_plot_k10_aauto_bauto")

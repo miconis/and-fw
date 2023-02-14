@@ -1,0 +1,179 @@
+{
+  "wf": {
+    "threshold": "0.99",
+    "dedupRun": "001",
+    "entityType": "author",
+    "subEntityType": "author",
+    "subEntityValue": "author",
+    "orderField": "name",
+    "queueMaxSize": "200",
+    "groupMaxSize": "100",
+    "maxChildren": "100",
+    "slidingWindowSize": "50",
+    "rootBuilder": [
+      "result",
+      "resultProject_outcome_isProducedBy",
+      "resultResult_publicationDataset_isRelatedTo",
+      "resultResult_similarity_isAmongTopNSimilarDocuments",
+      "resultResult_similarity_hasAmongTopNSimilarDocuments",
+      "resultOrganization_affiliation_isAffiliatedWith",
+      "resultResult_part_hasPart",
+      "resultResult_part_isPartOf",
+      "resultResult_supplement_isSupplementTo",
+      "resultResult_supplement_isSupplementedBy",
+      "resultResult_version_isVersionOf"
+    ],
+    "includeChildren": "true",
+    "maxIterations": 20,
+    "idPath": "$.id"
+  },
+  "pace": {
+    "clustering" : [
+      { "name" : "lnfi", "fields" : [ "name" ], "params" : {} }
+    ],
+    "decisionTree": {
+      "start": {
+        "fields": [
+          {
+            "field": "pub_id",
+            "comparator": "exactMatch",
+            "weight": 1,
+            "countIfUndefined": "false",
+            "params": {}
+          }
+        ],
+        "threshold":1,
+        "aggregation": "AVG",
+        "positive": "NO_MATCH",
+        "negative": "yearCheck",
+        "undefined": "yearCheck"
+      },
+      "yearCheck": {
+        "fields": [
+          {
+            "field": "year",
+            "comparator": "numbersComparator",
+            "weight": 1,
+            "countIfUndefined": "false",
+            "params": {}
+          }
+        ],
+        "threshold": 50,
+        "aggregation": "MAX",
+        "positive": "NO_MATCH",
+        "negative": "surnames",
+        "undefined": "surnames",
+        "ignoreUndefined": "true"
+      },
+      "surnames": {
+        "fields": [
+          {
+            "field": "coauthors",
+            "comparator": "authorsMatch",
+            "weight": 1.0,
+            "countIfUndefined": "false",
+            "params": {
+              "surname_th": 0.75,
+              "fullname_th": 0.75,
+              "size_th": 20,
+              "mode": "surname"
+            }
+          }
+        ],
+        "threshold": 0.5,
+        "aggregation": "MAX",
+        "positive": "MATCH",
+        "negative": "cityCheck",
+        "undefined": "cityCheck",
+        "ignoreUndefined": "true"
+      },
+      "cityCheck": {
+        "fields": [
+          {
+            "field": "org",
+            "comparator": "cityMatch",
+            "weight": 1.0,
+            "countIfUndefined": "true",
+            "params": {
+              "windowSize": "4"
+            }
+          }
+        ],
+        "threshold": 0.1,
+        "aggregation": "AVG",
+        "positive": "keywordCheck",
+        "negative": "NO_MATCH",
+        "undefined": "keywordCheck",
+        "ignoreUndefined": "true"
+      },
+      "keywordCheck": {
+        "fields": [
+          {
+            "field": "org",
+            "comparator": "keywordMatch",
+            "weight": 1.0,
+            "countIfUndefined": "true",
+            "params": {
+              "windowSize": "4"
+            }
+          }
+        ],
+        "threshold": 0.5,
+        "aggregation": "AVG",
+        "positive": "orgCheck",
+        "negative": "NO_MATCH",
+        "undefined": "orgCheck",
+        "ignoreUndefined": "true"
+      },
+      "orgCheck": {
+        "fields": [
+          {
+            "field": "org",
+            "comparator": "jaroWinklerNormalizedName",
+            "weight": 1,
+            "countIfUndefined": "true",
+            "params": {
+              "windowSize": "4"
+            }
+          }
+        ],
+        "threshold": 0.7,
+        "aggregation": "AVG",
+        "positive": "MATCH",
+        "negative": "NO_MATCH",
+        "undefined": "MATCH",
+        "ignoreUndefined": "true"
+      }
+    },
+    "model": [
+      {
+        "name": "name",
+        "type": "String",
+        "path": "$.name"
+      },
+      {
+        "name": "coauthors",
+        "type": "List",
+        "path": "$.coauthors[*].name",
+        "size": 200
+      },
+      {
+        "name": "year",
+        "type": "String",
+        "path": "$.year"
+      },
+      {
+        "name": "pub_id",
+        "type": "String",
+        "path": "$.pub_id"
+      },
+      {
+        "name": "org",
+        "type": "String",
+        "path": "$.org"
+      }
+    ],
+    "blacklists": {},
+    "synonyms": {}
+  }
+}

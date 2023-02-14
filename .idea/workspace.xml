@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="384bbe69-51ae-45a1-912e-4a1867f3a254" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/and-fw.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/and-fw.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authors_extractor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/authors.fdup.conf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/authors.fdup.soft.conf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spark_lda_modeler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createLDAmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LDAanalysis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_processors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lda_modeler.py" beforeDir="false" afterPath="$PROJECT_DIR$/lda_modeler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_utils.py" afterDir="false" />
@@ -22,41 +25,52 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="csv" value="1" />
+          <entry key="csv" value="2" />
           <entry key="dictionary_aminer_wiw_nobelow5_noabove07" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="1" />
-          <entry key="json" value="12" />
-          <entry key="png" value="4" />
-          <entry key="py" value="25" />
+          <entry key="json" value="34" />
+          <entry key="md" value="1" />
+          <entry key="parquet" value="3" />
+          <entry key="part-00000" value="1" />
+          <entry key="png" value="10" />
+          <entry key="py" value="60" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSV" value="1" />
+          <entry key="CSV" value="2" />
           <entry key="HTML" value="1" />
-          <entry key="Image" value="4" />
-          <entry key="JSON" value="12" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="25" />
+          <entry key="Image" value="10" />
+          <entry key="JSON" value="34" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Python" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
           <entry key="gitignore" value="9" />
-          <entry key="py" value="9176" />
+          <entry key="json" value="4" />
+          <entry key="md" value="374" />
+          <entry key="py" value="30239" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JSON" value="4" />
+          <entry key="Markdown" value="374" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="9176" />
+          <entry key="Python" value="30239" />
         </counts>
       </usages-collector>
     </session>
@@ -64,65 +78,62 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lda_modeler.py">
+        <entry file="file://$PROJECT_DIR$/authors_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="320" column="27" lean-forward="true" selection-start-line="320" selection-start-column="27" selection-end-line="320" selection-end-column="27" />
+            <state relative-caret-position="566">
+              <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
               <folding>
-                <marker date="1674471722341" expanded="true" signature="8970:9156" ph="..." />
-                <marker date="1674471722341" expanded="true" signature="10033:10052" ph="..." />
-                <marker date="1674471722341" expanded="true" signature="12595:12877" ph="..." />
-                <marker date="1674471722341" expanded="true" signature="13988:13989" ph="..." />
+                <element signature="e#0#24#0" expanded="true" />
+                <marker date="1675088023654" expanded="true" signature="1108:1111" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/gensim/corpora/dictionary.py">
+        <entry file="file://$PROJECT_DIR$/utility.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="208">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1674749246899" expanded="true" signature="164:169" ph="..." />
+                <marker date="1674749246899" expanded="true" signature="238:241" ph="..." />
+                <marker date="1674749246899" expanded="true" signature="593:598" ph="..." />
+                <marker date="1674749246899" expanded="true" signature="730:735" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs.json">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state>
-              <caret column="2957" selection-start-column="2957" selection-end-column="2957" />
+        <entry file="file://$PROJECT_DIR$/lda_modeler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="186" column="20" selection-start-line="186" selection-start-column="13" selection-end-line="186" selection-end-column="20" />
+              <folding>
+                <marker date="1675438956276" expanded="true" signature="9349:9433" ph="..." />
+                <marker date="1675438956276" expanded="true" signature="10201:10204" ph="..." />
+                <marker date="1675438956276" expanded="true" signature="10330:11040" ph="..." />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_lda_topics.json">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LDAanalysis.py">
+        <entry file="file://$PROJECT_DIR$/spark_lda_modeler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1392">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_processed.json">
-          <provider selected="true" editor-type-id="LargeFileEditor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="814">
+              <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1674224667282" expanded="true" signature="377:382" ph="..." />
+                <element signature="e#19#46#0" expanded="true" />
+                <marker date="1676373896964" expanded="true" signature="2694:4666" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="3920:3921" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="4303:4666" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="4982:5215" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="5349:5350" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="5349:5724" ph="..." />
+                <marker date="1676373896964" expanded="true" signature="12936:12961" ph="..." />
               </folding>
             </state>
           </provider>
@@ -131,22 +142,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="949">
+              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataset_processors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding>
-                <element signature="e#111#132#0" expanded="true" />
+                <marker date="1676363403284" expanded="true" signature="4158:4159" ph="..." />
               </folding>
             </state>
           </provider>
@@ -163,24 +163,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TyPA2y71</find>
-      <find>zsOOUZxZ</find>
-      <find>QDMcmF8V</find>
-      <find>plt</find>
-      <find>sqlcontext</find>
-      <find>spark</find>
-      <find>nlp</find>
-      <find>stop_Words</find>
-      <find>lemmatization</find>
-      <find>after</find>
-      <find>_</find>
-      <find>dictionary.load</find>
-      <find>ldamodel.load</find>
       <find>papers</find>
       <find>remove_stopwords</find>
       <find>corpus_path</find>
       <find>json.dump</find>
       <find>ldavis</find>
+      <find>topics</find>
+      <find>seabo</find>
+      <find>sns</find>
+      <find>QDMcmF8V</find>
+      <find>gt_id&quot;: &quot;Q</find>
+      <find>chinese academy of sciences</find>
+      <find>smith</find>
+      <find>LI</find>
+      <find>list(map</find>
+      <find>remove_sto</find>
+      <find>simple_preproce</find>
+      <find>simple</find>
+      <find>lemm</find>
+      <find>nlp</find>
+      <find>co</find>
+      <find>csv</find>
+      <find>tiny</find>
+      <find>printschema</find>
+      <find>optimizer</find>
+      <find>iterations</find>
+      <find>corpus</find>
+      <find>vocab</find>
+      <find>openaire_subjects</find>
+      <find>bigrams</find>
+      <find>vocabSize</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)</dir>
@@ -197,30 +209,40 @@
         <option value="$PROJECT_DIR$/utilityFunctions.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/dataset_processors.py" />
-        <option value="$PROJECT_DIR$/plot_utils.py" />
+        <option value="$PROJECT_DIR$/relation_computer.py" />
         <option value="$PROJECT_DIR$/utility.py" />
+        <option value="$PROJECT_DIR$/authors_extractor.py" />
+        <option value="$PROJECT_DIR$/conf/authors.fdup.conf.json" />
+        <option value="$PROJECT_DIR$/conf/authors.fdup.soft.conf.json" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lda_modeler.py" />
+        <option value="$PROJECT_DIR$/plot_utils.py" />
+        <option value="$PROJECT_DIR$/spark_lda_modeler.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-362" />
-    <option name="y" value="-1057" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="x" value="130" />
+    <option name="y" value="96" />
+    <option name="width" value="1718" />
+    <option name="height" value="956" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
               <item name="and-fw" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="and-fw" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
@@ -236,7 +258,17 @@
             <path>
               <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
               <item name="and-fw" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="and-fw" type="462c0819:PsiDirectoryNode" />
               <item name="outputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="and-fw" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="and-fw" type="b2602c69:ProjectViewProjectNode" />
@@ -246,18 +278,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="remove_stop&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/datasets" />
+      <recent name="$PROJECT_DIR$/results" />
+      <recent name="$PROJECT_DIR$/dataset" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examples" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/dataset" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -272,7 +308,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.lda_modeler">
+  <component name="RunManager" selected="Python.spark_lda_modeler">
+    <configuration name="authors_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="and-fw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/authors_extractor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dataset_processors" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="and-fw" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,13 +372,61 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="spark_lda_modeler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="and-fw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spark_lda_modeler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="utility" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="and-fw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utility.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.dataset_processors" />
       <item itemvalue="Python.lda_modeler" />
+      <item itemvalue="Python.authors_extractor" />
+      <item itemvalue="Python.utility" />
+      <item itemvalue="Python.spark_lda_modeler" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.spark_lda_modeler" />
         <item itemvalue="Python.lda_modeler" />
+        <item itemvalue="Python.authors_extractor" />
+        <item itemvalue="Python.utility" />
         <item itemvalue="Python.dataset_processors" />
       </list>
     </recent_temporary>
@@ -340,20 +445,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-362" y="-1057" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2696156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22854134" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986835" weight="0.3968912" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32746115" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986835" weight="0.3088083" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49815693" visible="true" weight="0.21968912" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49815693" weight="0.32435232" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013165" side_tool="true" weight="0.32953367" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4997367" weight="0.32953367" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -365,187 +471,314 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/clusteringTest.py">
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_lda_topics.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-686" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCAD-zbMATHtoJSON.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/LDAexample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1626">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-14253">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/LDAexample2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3531" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)/train_author.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="388" column="21" selection-start-line="388" selection-start-column="13" selection-end-line="388" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AminerWiWtoJSON.py" />
-    <entry file="file://$PROJECT_DIR$/createClusters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/authorExtractor.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LDAtraining.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/Aminer-WhoIsWho (na-v3)/train_pub.json">
+    <entry file="file://$PROJECT_DIR$/LDAanalysis.py" />
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs.json">
       <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="-3871">
+          <caret column="16" selection-start-column="8" selection-end-column="16" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/gensim/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="723" column="8" selection-start-line="723" selection-start-column="8" selection-end-line="723" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/dictionary_aminer_wiw_nobelow5_noabove07">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/coherence_stats_aauto_bauto.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/results/coherence_graph_fixed_aauto_bauto.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/wordcloud_after.png">
+    <entry file="file://$PROJECT_DIR$/results/tsne_plot_author_wiw_hyang.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/worldcloud_before.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/relation_computer.py" />
+    <entry file="file://$PROJECT_DIR$/conf/authors.fdup.conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="178" column="1" selection-start-line="178" selection-start-column="1" selection-end-line="178" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/ldavis_prepared.html">
+    <entry file="file://$PROJECT_DIR$/results/authors_orgs_stats.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1109190">
+          <caret line="73946" column="37" selection-start-line="73946" selection-start-column="37" selection-end-line="73946" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_authors.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="16515">
+          <caret line="1101" column="22" selection-start-line="1101" selection-start-column="22" selection-end-line="1101" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/authors_keywords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1854300">
+          <caret line="123620" column="12" selection-start-line="123620" selection-start-column="12" selection-end-line="123620" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/authors.fdup.soft.conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="99" column="7" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/LDAexample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1347" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/LDAexample2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-406" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.2/python_stubs/1307399709/unicodedata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="108" column="4" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/gensim/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-609">
+          <caret line="226" column="4" selection-start-line="226" selection-start-column="4" selection-end-line="226" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_processed.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-38150">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" selection-start-line="6" selection-end-line="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/dedup/part-00000">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="150">
+          <caret column="2147" selection-start-column="2147" selection-end-column="2147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/aminer_wiw_test.json/part-00000-dce5674b-ce37-49c2-a19c-ea790576a192-c000.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_utils.py">
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/sparknlp/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="825">
+          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/gensim/corpora/dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4515">
+          <caret line="307" column="8" selection-start-line="307" selection-start-column="8" selection-end-line="307" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataset_processors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+        <state relative-caret-position="495">
+          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding>
             <element signature="e#111#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/tsne_plot_k10_aauto_bauto.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/gensim/corpora/dictionary.py">
+    <entry file="file://$PROJECT_DIR$/authors_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_lda_topics.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs.json">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state>
-          <caret column="2957" selection-start-column="2957" selection-end-column="2957" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_processed.json">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lda_modeler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="320" column="27" lean-forward="true" selection-start-line="320" selection-start-column="27" selection-end-line="320" selection-end-column="27" />
+        <state relative-caret-position="566">
+          <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
           <folding>
-            <marker date="1674471722341" expanded="true" signature="8970:9156" ph="..." />
-            <marker date="1674471722341" expanded="true" signature="10033:10052" ph="..." />
-            <marker date="1674471722341" expanded="true" signature="12595:12877" ph="..." />
-            <marker date="1674471722341" expanded="true" signature="13988:13989" ph="..." />
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1675088023654" expanded="true" signature="1108:1111" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createLDAmodel.py">
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/ml/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4738">
-          <caret line="358" column="21" selection-start-line="358" selection-end-line="359" />
+        <state relative-caret-position="-158">
+          <caret line="237" column="8" selection-start-line="237" selection-start-column="8" selection-end-line="237" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json/part-00000-259503a1-e04c-4693-aabc-939f3401746c-c000.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="426" selection-start-line="9" selection-start-column="426" selection-end-line="9" selection-end-column="426" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/aminer_wiw_tokens.json/part-00000-87aa5e09-0eae-427c-9e46-6366d7215fd0-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/aminer_wiw_tokens.json/part-00000-81bf4fe4-8f1b-4b8a-8078-ebfc3688aee3-c000.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json/part-00000-0dc7019e-6bef-4d8e-abef-340a5469fe11-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json/part-00000-6c10c097-abb9-4812-bd8e-f8ebf5b08238-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/aminer_wiw_tokens.json/part-00000-3fa3e746-07e3-4f75-a19e-5e84d409a7dc-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json/part-00000-59e1a35c-3cff-4af7-b694-f55a47a442dd-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/sql/types.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="299" column="20" selection-start-line="299" selection-start-column="16" selection-end-line="299" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus.json/part-00000-e86b26b3-0262-4267-a054-6a1e78fbc0e8-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_pubs_corpus/part-00000-81c36dc5-2e93-47b6-8dd9-42c70ead3fd9-c000.snappy.parquet">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/ml/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10059">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#785#795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/ml/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="350" column="8" selection-start-line="350" selection-start-column="8" selection-end-line="350" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/lda_docs_test/part-00000-a8ff82ee-180d-45c8-8c67-d77f2bf09fe5-c000.snappy.parquet">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/ml/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-563">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/lda_docs_test/part-00000-a5e13c9c-9659-4744-8ee2-130832a9770e-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/lda_docs_test/part-00000-8a0f95ac-1a2a-421e-b190-fbf65ae96a10-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/coherence_stats_aauto_bauto.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/processed/aminer_wiw_tokens.json/part-00000-b0fddd72-5e2a-4f0c-a409-de3d2e8de5b5-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/lda_docs_test/part-00000-926d99f5-ebd8-4871-bb60-65bdc8eb2e6f-c000.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyLDAvis/_display.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1396">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="208">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1674224667282" expanded="true" signature="377:382" ph="..." />
+            <marker date="1674749246899" expanded="true" signature="164:169" ph="..." />
+            <marker date="1674749246899" expanded="true" signature="238:241" ph="..." />
+            <marker date="1674749246899" expanded="true" signature="593:598" ph="..." />
+            <marker date="1674749246899" expanded="true" signature="730:735" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDAanalysis.py">
+    <entry file="file://$USER_HOME$/.pyenv/versions/3.8.7/lib/python3.8/site-packages/pyspark/ml/feature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1392">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="42">
+          <caret line="1074" column="8" selection-start-line="1074" selection-start-column="8" selection-end-line="1074" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lda_modeler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="186" column="20" selection-start-line="186" selection-start-column="13" selection-end-line="186" selection-end-column="20" />
+          <folding>
+            <marker date="1675438956276" expanded="true" signature="9349:9433" ph="..." />
+            <marker date="1675438956276" expanded="true" signature="10201:10204" ph="..." />
+            <marker date="1675438956276" expanded="true" signature="10330:11040" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/openaire_subjects_vocabulary/data/part-00000-a19d94ff-97c2-4623-9b94-af5ede8aff88-c000.snappy.parquet">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/Perplexity graph varying k.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="949">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1676363403284" expanded="true" signature="4158:4159" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spark_lda_modeler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
+          <folding>
+            <element signature="e#19#46#0" expanded="true" />
+            <marker date="1676373896964" expanded="true" signature="2694:4666" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="3920:3921" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="4303:4666" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="4982:5215" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="5349:5350" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="5349:5724" ph="..." />
+            <marker date="1676373896964" expanded="true" signature="12936:12961" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
