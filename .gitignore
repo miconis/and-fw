@@ -52,5 +52,7 @@ docs/_build/
 datasets/
 results/
 outputs/
-Networks/
+examples/
+gnn/data/
+gnn/dedup_data/
 
