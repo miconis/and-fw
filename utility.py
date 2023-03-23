@@ -1,10 +1,7 @@
-import hashlib
 import json
-import os, glob
-from utility import *
-from pyspark import SparkConf
-from pyspark import SparkContext
+import os
 import string
+import hashlib
 
 
 def clean_string(s):

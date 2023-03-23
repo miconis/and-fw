@@ -1,11 +1,11 @@
-from matplotlib import pyplot as plt
+from functools import partial
+
 import numpy as np
-import pandas as pd
-import seaborn as sns
-from wordcloud import WordCloud
-from sklearn.manifold import TSNE
-from pyspark.sql.functions import udf, col, size, explode, regexp_replace, trim, lower, lit
 import pyLDAvis
+from matplotlib import pyplot as plt, animation
+from pyspark.sql.functions import col, size, explode
+from sklearn.manifold import TSNE
+from wordcloud import WordCloud
 
 
 def plot_wordcloud(x, output_path='../results'):
@@ -37,20 +37,58 @@ def plot_3d_graph(x=np.array([]), y=np.array([]), z=np.array([]), xlabel='x', yl
 def plot_2d_graph(x=[], y=[], xlabel='x', ylabel='y', title='coherence graph', output_base_path='../results'):
     plt.figure()
     plt.plot(x, y)
+    # plt.xticks(range(math.floor(min(x)), math.ceil(max(x)) + 1))  # to force the x axis to show only integers
+    plt.xticks(x)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.legend('coherence_values', loc='best')
     plt.title(title)
-    plt.savefig("%s/%s.png" % (output_base_path, title))
-    # plt.show()
+    # plt.savefig("%s/%s.png" % (output_base_path, title))
+    plt.show()
     return
 
 
-def tsne_plot(element, n_components=2, perplexity=25, early_exaggeration=12, learning_rate=0.51, n_iter=1000, init='pca', method='barnes_hut', random_state=0, output_path='../results/tsne_plot.png'):
-    plt.figure()
-    docs = list(map(lambda e: e['topics'], element))
-    x = np.array(docs)
-    y = list(map(lambda e: e['gt_id'], element))
+# def tsne_plot(element, n_components=2, perplexity=25, early_exaggeration=12, learning_rate=0.51, n_iter=1000, init='pca', method='barnes_hut', random_state=0, output_path='../results/tsne_plot.png'):
+#     plt.figure()
+#     docs = list(map(lambda e: e['topics'], element))
+#     x = np.array(docs)
+#     y = list(map(lambda e: e['gt_id'], element))
+#
+#     tsne = TSNE(n_components=n_components,
+#                 perplexity=perplexity,
+#                 early_exaggeration=early_exaggeration,
+#                 learning_rate=learning_rate,
+#                 n_iter=n_iter,
+#                 init=init,
+#                 method=method,
+#                 random_state=random_state)
+#
+#     z = tsne.fit_transform(x)
+#
+#     df = pd.DataFrame()
+#     df["y"] = y
+#     df["comp-1"] = z[:, 0]
+#     df["comp-2"] = z[:, 1]
+#
+#     sns.scatterplot(x="comp-1", y="comp-2", hue=df.y.tolist(),
+#                     palette=sns.color_palette("hls", len(set(y))),
+#                     data=df).set(title="LDA docs T-SNE projection")
+#     plt.savefig(output_path)
+#     # plt.show()
+#     return
+
+
+def tsne_plot(ax, vectors, labels, title="TSNE projection", n_components=2, perplexity=25, early_exaggeration=12, learning_rate=0.51, n_iter=1000, init='pca', method='barnes_hut', random_state=0, save=False, show=False, outputh_path="../results/tsne_plot.png"):
+    """
+    Generate the TSNE projection of the given data
+    Arguments:
+        ax: the axis
+        vectors: the list of input vectors to be transformed
+        labels: the list of labels for the vectors
+        title: the title of the graph
+        n_components: size of the TSNE output vectors
+    """
+    ax.clear()
 
     tsne = TSNE(n_components=n_components,
                 perplexity=perplexity,
@@ -61,25 +99,41 @@ def tsne_plot(element, n_components=2, perplexity=25, early_exaggeration=12, lea
                 method=method,
                 random_state=random_state)
 
-    z = tsne.fit_transform(x)
+    tsne_projection = tsne.fit_transform(np.array(vectors))
 
-    df = pd.DataFrame()
-    df["y"] = y
-    df["comp-1"] = z[:, 0]
-    df["comp-2"] = z[:, 1]
+    # prepare scatterplot
+    ax.scatter(tsne_projection[:, 0], tsne_projection[:, 1], c=labels, s=100)
+    ax.set_title(title)
+    ax.set_xlim([-10, 10])
+    ax.set_ylim([-10, 10])
 
-    sns.scatterplot(x="comp-1", y="comp-2", hue=df.y.tolist(),
-                    palette=sns.color_palette("hls", len(set(y))),
-                    data=df).set(title="LDA docs T-SNE projection")
-    plt.savefig(output_path)
-    # plt.show()
-    return
+    if show:
+        plt.show()
+    if save:
+        plt.savefig(outputh_path)
+
+
+def animate(i, axis, embeddings, labels, epochs, losses):
+    tsne_plot(ax=axis, vectors=embeddings[i], labels=labels, title=f'Epoch: {epochs[i]}, Loss: {losses[i]:.4f}')
+
+
+def generate_gif(embeddings, labels, epochs, losses, fps=24, show=True, save=True, output_path="/tmp/embeddings.gif"):
+    fig, ax = plt.subplots()
+
+    anim = animation.FuncAnimation(fig,
+                                   partial(animate, axis=ax, embeddings=embeddings, labels=labels, epochs=epochs, losses=losses),
+                                   len(embeddings))
+
+    if show:
+        plt.show()
+    if save:
+        anim.save(output_path, writer="imagemagick", fps=fps)
 
 
 def format_data_to_pyldavis(df_filtered, count_vectorizer, transformed, lda_model):
     xxx = df_filtered.select((explode(df_filtered.tokens)).alias("words")).groupby("words").count()
     word_counts = {r['words']:r['count'] for r in xxx.collect()}
-    word_counts = [word_counts[w] for w in count_vectorizer.vocabulary]
+    word_counts = [word_counts[w] if w in word_counts.keys() else 0 for w in count_vectorizer.vocabulary]
 
     data = {'topic_term_dists': np.array([row for row in lda_model.describeTopics(maxTermsPerTopic=len(count_vectorizer.vocabulary)).select(col('termWeights')).toPandas()['termWeights']]),
             'doc_topic_dists': np.array([x for x in transformed.select(["topicsVector"]).toPandas()['topicsVector']]),
